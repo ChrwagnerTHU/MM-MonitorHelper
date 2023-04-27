@@ -13,8 +13,8 @@ GPIO.setup(PIR_PIN, GPIO.IN)
 
 url_monitor_dim = 'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=1'
 url_monitor_bright = 'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=100'
-monitor_off = datetime.time(23, 55, 0)
-monitor_on = datetime.time(7, 0, 0)
+time_monitor_off = datetime.time(23, 55, 0)
+time_monitor_on = datetime.time(7, 0, 0)
 bash_monitor_on = 'vcgencmd display_power 1'
 bash_monitor_off = 'vcgencmd display_power 0'
 
@@ -24,7 +24,7 @@ requests.get(url_monitor_dim)
 process = subprocess.Popen(bash_monitor_on.split(), stdout=subprocess.PIPE)
 output, error = process.communicate()
 
-while(time_in_range(monitor_on, monitor_off, datetime.datetime.now().time())):
+while(time_in_range(time_monitor_on, time_monitor_off, datetime.datetime.now().time())):
     if GPIO.input(PIR_PIN):
         requests.get(url_monitor_bright)
         time.sleep(10)
