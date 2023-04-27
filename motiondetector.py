@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 import requests
 import time
 import datetime
-import subprocess
 
 def time_in_range(start, end, current):
     return start <= current <= end
