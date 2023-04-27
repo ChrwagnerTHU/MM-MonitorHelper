@@ -14,7 +14,7 @@ url_monitor_dim = 'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=1'
 url_monitor_bright = 'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=100'
 url_monitor_on = 'http://192.168.2.46:8080/remote?action=MONITORON'
 url_monitor_off = 'http://192.168.2.46:8080/remote?action=MONITOROFF'
-time_monitor_off = datetime.time(23, 55, 0)
+time_monitor_off = datetime.time(23, 45, 0)
 time_monitor_on = datetime.time(7, 0, 0)
 bright_interval = 60
 
