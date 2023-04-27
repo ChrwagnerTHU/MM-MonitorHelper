@@ -17,6 +17,7 @@ url_monitor_on = 'http://192.168.2.46:8080/remote?action=MONITORON'
 url_monitor_off = 'http://192.168.2.46:8080/remote?action=MONITOROFF'
 time_monitor_off = datetime.time(23, 55, 0)
 time_monitor_on = datetime.time(7, 0, 0)
+bright_interval = 60
 
 
 # Initially turn off monitor
@@ -26,7 +27,7 @@ requests.get(url_monitor_on)
 while(time_in_range(time_monitor_on, time_monitor_off, datetime.datetime.now().time())):
     if GPIO.input(PIR_PIN):
         requests.get(url_monitor_bright)
-        time.sleep(10)
+        time.sleep(bright_interval)
         requests.get(url_monitor_dim)
 
 requests.get(url_monitor_off)
