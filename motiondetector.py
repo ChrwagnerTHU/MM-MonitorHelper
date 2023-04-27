@@ -12,7 +12,7 @@ GPIO.setup(PIR_PIN, GPIO.IN)
 
 url_monitor_dim = 'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=1'
 url_monitor_bright = 'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=100'
-monitor_off = datetime.time(18, 10, 0)
+monitor_off = datetime.time(23, 55, 0)
 monitor_on = datetime.time(7, 0, 0)	
 
 # Initially turn off monitor
