@@ -1,3 +1,5 @@
+import json
+import os
 import RPi.GPIO as GPIO
 import requests
 import time
@@ -6,21 +8,25 @@ import datetime
 def time_in_range(start, end, current):
     return start <= current <= end
 
-PIR_PIN = 18
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(PIR_PIN, GPIO.IN)
 
-url_monitor_dim = 'http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=1'
-url_monitor_bright = 'http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=100'
-url_monitor_on = 'http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITORON'
-url_monitor_off = 'http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITOROFF'
 time_monitor_off = datetime.time(23, 45, 0) # turn off monitor at 11:45pm
 time_monitor_on = datetime.time(7, 0, 0) # turn on monitor at 7:00am
-bright_interval = 60 # brighten the monitor for 1 minute
-off_interval = 900 # after 15 minutes of inactivity, turn off monitor
-timestamp_dim = datetime.datetime.now()
-monitor_on = True
 
+__location__ = os.path.dirname(os.path.abspath(__file__))
+with open (__location__ + "/config.json", "r") as f:
+    data = json.load(f)
+    PIR_PIN = data['PIR_PIN']
+    url_monitor_on = data['url_monitor_on']
+    url_monitor_off = data['url_monitor_off']
+    url_monitor_dim = data['url_monitor_dim']
+    url_monitor_bright = data['url_monitor_bright']
+    bright_interval = data['bright_interval']
+    off_interval = data['off_interval']
+
+
+# Set GPIO pin for PIR sensor
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(PIR_PIN, GPIO.IN)
 
 # Initially turn on monitor and dim it
 requests.get(url_monitor_dim)
