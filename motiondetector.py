@@ -15,6 +15,7 @@ time_monitor_on = datetime.time(7, 0, 0) # turn on monitor at 7:00am
 __location__ = os.path.dirname(os.path.abspath(__file__))
 with open (__location__ + "/config.json", "r") as f:
     data = json.load(f)
+    
     PIR_PIN = data['PIR_PIN']
     url_monitor_on = data['url_monitor_on']
     url_monitor_off = data['url_monitor_off']
