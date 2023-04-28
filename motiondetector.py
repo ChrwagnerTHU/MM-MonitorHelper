@@ -10,10 +10,10 @@ PIR_PIN = 18
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIR_PIN, GPIO.IN)
 
-url_monitor_dim = 'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=1'
-url_monitor_bright = 'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=100'
-url_monitor_on = 'http://192.168.2.46:8080/remote?action=MONITORON'
-url_monitor_off = 'http://192.168.2.46:8080/remote?action=MONITOROFF'
+url_monitor_dim = 'http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=1'
+url_monitor_bright = 'http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=100'
+url_monitor_on = 'http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITORON'
+url_monitor_off = 'http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITOROFF'
 time_monitor_off = datetime.time(23, 45, 0) # turn off monitor at 11:45pm
 time_monitor_on = datetime.time(7, 0, 0) # turn on monitor at 7:00am
 bright_interval = 60 # brighten the monitor for 1 minute
