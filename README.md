@@ -29,10 +29,10 @@ The script contains several variables to control how the screen behaves
 |Option|Default|Description|
 |---|---|---|
 |`PIR_PIN`|18|The Pin the motion controller is attached|
-|`url_monitor_dim`|'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=1'|The URL to set the brightnes to 1|
-|`url_monitor_bright`|'http://192.168.2.46:8080/remote?action=BRIGHTNESS&value=100'|The URL to set the brightnes to 100|
-|`url_monitor_on`|'http://192.168.2.46:8080/remote?action=MONITORON'|The URL to turn on the monitor|
-|`url_monitor_off`|'http://192.168.2.46:8080/remote?action=MONITOROFF'|The URL to turn off the monitor|
+|`url_monitor_dim`|'http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=1'|The URL to set the brightnes to 1|
+|`url_monitor_bright`|'http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=100'|The URL to set the brightnes to 100|
+|`url_monitor_on`|'http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITORON'|The URL to turn on the monitor|
+|`url_monitor_off`|'http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITOROFF'|The URL to turn off the monitor|
 |`time_monitor_off`|23, 45, 0|Time the monitor shall be finally turned off|
 |`time_monitor_on`|7, 0, 0|Time the monitor shall be finally turned on|
 |`bright_interval`|60|Time the monitor shall remain bright after motion detected (in s)|
