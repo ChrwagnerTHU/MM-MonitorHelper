@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 import json
 import os
 import RPi.GPIO as GPIO
@@ -9,7 +11,7 @@ def time_in_range(start, end, current):
     return start <= current <= end
 
 
-time_monitor_off = datetime.time(23, 45, 0) # turn off monitor at 11:45pm
+time_monitor_off = datetime.time(23, 55, 0) # turn off monitor at 11:45pm
 time_monitor_on = datetime.time(7, 0, 0) # turn on monitor at 7:00am
 
 __location__ = os.path.dirname(os.path.abspath(__file__))
