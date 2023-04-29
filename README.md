@@ -1,8 +1,10 @@
 # MonitorHelper
 
-This repository bundles several helper scripts to control the MagicMirror
-Until now, this repository only contains a script to control the monitor.
-The repository shall function as a place to bundle every other control script.
+The repository shall function as a place to bundle every script to control the behavior of the MagicMirror other than adding a module for every task.
+
+## Prerequisites
+- A RaspberryPi which runs [MagicMirror2](https://github.com/MichMich/MagicMirror/tree/develop)
+- [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control) installed
 
 ## Installation
 ```
@@ -26,12 +28,10 @@ Example:
 The script `motiondetector.py` controls the screen  depending on the signal of the connected motion detector 
 
 ## Prerequisites
-- A RaspberryPi which runs [MagicMirror2](https://github.com/MichMich/MagicMirror/tree/develop)
-- [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control) installed
 - PIR Motion Detector connected to one of the RaspberryPis Pins 
 
 ### Config
-Costomize the `config.json` to control the behavor of the monitor
+Costomize the 'MOTION' section in the `config.json` file to control the behavor of the monitor
 |Option|Default|Description|
 |---|---|---|
 |`PIR_PIN`|18|The Pin the motion controller is attached|
