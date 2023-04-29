@@ -21,11 +21,11 @@ crontab -e
 add the following line with the minute, hour, day, month, day-of-week you want to run the script
 Example:
 ```
-01 07 * * * python3 /usr/dirToScript/motiondetector.py
+01 07 * * * python3 /usr/home/dirToScript/motiondetector.py
 ````
 
 ### Config
-Costomize the config.json to control the behavor of the monitor
+Costomize the `config.json` to control the behavor of the monitor
 |Option|Default|Description|
 |---|---|---|
 |`PIR_PIN`|18|The Pin the motion controller is attached|
