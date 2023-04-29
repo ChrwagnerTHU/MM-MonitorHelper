@@ -1,9 +1,11 @@
 {
-    "url_monitor_dim": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=1",
-    "url_monitor_bright": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=100",
-    "url_monitor_on": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITORON",
-    "url_monitor_off": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITOROFF",
-    "bright_interval": 60,
-    "off_interval": 900,
-    "PIR_PIN": 18
+    "MOTION":{
+        "url_monitor_dim": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=1",
+        "url_monitor_bright": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=100",
+        "url_monitor_on": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITORON",
+        "url_monitor_off": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITOROFF",
+        "bright_interval": 60,
+        "off_interval": 900,
+        "PIR_PIN": 18
+    }
 }
