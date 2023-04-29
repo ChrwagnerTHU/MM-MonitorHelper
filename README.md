@@ -1,8 +1,6 @@
 # MonitorHelper
 
-This repository bundles several helper scripts to control the MagicMirror
-Until now, this repository only contains a script to control the monitor.
-The repository shall function as a place to bundle every other control script.
+The repository shall function as a place to bundle every script to control the behavior of the MagicMirror other than adding a module for every task.
 
 ## Prerequisites
 - A RaspberryPi which runs [MagicMirror2](https://github.com/MichMich/MagicMirror/tree/develop)
