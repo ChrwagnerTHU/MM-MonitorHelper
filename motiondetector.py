@@ -42,18 +42,21 @@ while(time_in_range(time_monitor_on, time_monitor_off, datetime.datetime.now().t
 
     # Turn on monitor if motion is detected
     if GPIO.input(PIR_PIN):
-        
-        # Turn on monitor and brighten it
-        requests.get(url_monitor_bright)
-        requests.get(url_monitor_on)
-        monitor_on = True
+        try:
+            # Turn on monitor and brighten it
+            requests.get(url_monitor_bright)
+            requests.get(url_monitor_on)
+            monitor_on = True
 
-        # Keep monitor bright for 1 minute
-        time.sleep(bright_interval)
+            # Keep monitor bright for 1 minute
+            time.sleep(bright_interval)
 
-        # Dim monitor after 1 minute
-        requests.get(url_monitor_dim)
-        timestamp_dim = datetime.datetime.now()
+            # Dim monitor after 1 minute
+            requests.get(url_monitor_dim)
+            timestamp_dim = datetime.datetime.now()
+        except:
+            print("Error: Unable to connect to MagicMirror server")
+            continue
 
     # Turn off monitor after 15 minutes of inactivity
     if (datetime.datetime.now() - timestamp_dim).seconds > off_interval and monitor_on:
