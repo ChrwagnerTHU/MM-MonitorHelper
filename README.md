@@ -1,6 +1,8 @@
 # MonitorHelper
 
 This repository bundles several helper scripts to control the MagicMirror
+Until now, this repository only contains a script to control the monitor.
+The repository shall function as a place to bundle every other control script.
 
 ## Installation
 ```
