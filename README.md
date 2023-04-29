@@ -31,7 +31,7 @@ The script `motiondetector.py` controls the screen  depending on the signal of t
 - PIR Motion Detector connected to one of the RaspberryPis Pins 
 
 ### Config
-Costomize the `config.json` to control the behavor of the monitor
+Costomize the 'MOTION' section in the `config.json` file to control the behavor of the monitor
 |Option|Default|Description|
 |---|---|---|
 |`PIR_PIN`|18|The Pin the motion controller is attached|
