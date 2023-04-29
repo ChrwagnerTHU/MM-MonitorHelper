@@ -17,13 +17,13 @@ time_monitor_on = datetime.time(7, 0, 0) # turn on monitor at 7:00am
 __location__ = os.path.dirname(os.path.abspath(__file__))
 with open (__location__ + "/config.json", "r") as f:
     data = json.load(f)
-    PIR_PIN = data['PIR_PIN']
-    url_monitor_on = data['url_monitor_on']
-    url_monitor_off = data['url_monitor_off']
-    url_monitor_dim = data['url_monitor_dim']
-    url_monitor_bright = data['url_monitor_bright']
-    bright_interval = data['bright_interval']
-    off_interval = data['off_interval']
+    PIR_PIN = data['MOTION']['PIR_PIN']
+    url_monitor_on = data['MOTION']['url_monitor_on']
+    url_monitor_off = data['MOTION']['url_monitor_off']
+    url_monitor_dim = data['MOTION']['url_monitor_dim']
+    url_monitor_bright = data['MOTION']['url_monitor_bright']
+    bright_interval = data['MOTION']['bright_interval']
+    off_interval = data['MOTION']['off_interval']
 
 
 # Set GPIO pin for PIR sensor
