@@ -26,6 +26,9 @@ with open (__location__ + "/config.json", "r") as f:
     off_interval = data['MOTION']['off_interval']
 
 
+monitor_on = False
+
+
 # Set GPIO pin for PIR sensor
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIR_PIN, GPIO.IN)
