@@ -1,28 +1,32 @@
-# MotionDetector
+# MonitorHelper
 
-This repository contains a script to control the monitor on which the MagicMirror runs. 
-
-## Prerequisites
-- A RaspberryPi which runs [MagicMirror2](https://github.com/MichMich/MagicMirror/tree/develop)
-- [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control) installed
-- PIR Motion Detector connected to one of the RaspberryPis Pins 
+This repository bundles several helper scripts to control the MagicMirror
 
 ## Installation
 ```
 cd AnyDirectoryYouWant
 ```
 ```
-git clone https://github.com/ChrwagnerTHU/MM-MonitorHelper-PIR-MotionDetector
+git clone https://github.com/ChrwagnerTHU/MM-MonitorHelper
 ```
-To run the script automatically add a cronjob
+To run the any script automatically add a cronjob
 ```
 crontab -e
 ```
 add the following line with the minute, hour, day, month, day-of-week you want to run the script
 Example:
 ```
-01 07 * * * python3 /usr/home/dirToScript/motiondetector.py
+01 07 * * * python3 /usr/home/dirToScript/MM-MonitorHelper/motiondetector.py
 ````
+
+# MotionDetector
+
+The script `motiondetector.py` controls the screen  depending on the signal of the connected motion detector 
+
+## Prerequisites
+- A RaspberryPi which runs [MagicMirror2](https://github.com/MichMich/MagicMirror/tree/develop)
+- [MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control) installed
+- PIR Motion Detector connected to one of the RaspberryPis Pins 
 
 ### Config
 Costomize the `config.json` to control the behavor of the monitor
