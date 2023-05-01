@@ -29,11 +29,15 @@ with open (__location__ + "/config.json", "r") as f:
 # Set GPIO pin for PIR sensor
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIR_PIN, GPIO.IN)
-
-# Initially turn on monitor and dim it
-requests.get(url_monitor_dim)
-requests.get(url_monitor_on)
 timestamp_dim = datetime.datetime.now()
+
+try:
+    # Initially turn on monitor and dim it
+    requests.get(url_monitor_dim)
+    requests.get(url_monitor_on)
+    timestamp_dim = datetime.datetime.now()
+except: 
+    pass
 
 # Keep monitor on until 11:45pm
 while(time_in_range(time_monitor_on, time_monitor_off, datetime.datetime.now().time())):
