@@ -9,6 +9,8 @@
         "PIR_PIN": 18
     },
     "MODULE": {
-        "league": {}
+        "league": {},
+        "url_league_off": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=HIDE&module=MMM-SoccerLiveScore",
+        "url_league_on": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=SHOW&module=MMM-SoccerLiveScore"
     }
 }
