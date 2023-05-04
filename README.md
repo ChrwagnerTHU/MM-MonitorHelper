@@ -49,3 +49,19 @@ The control of the times between which the monitor should be completely on and o
 |---|---|---|
 |`time_monitor_off`|datetime.time(23, 45, 0)|The when the monitor shall be completely turned off|
 |`time_monitor_on`|datetime.time(7, 0, 0)|The when the monitor shall be turned on|
+
+# ModuleUpdater
+
+The script `moduleupdater.py` controls whether a module shall be displayed or not. 
+In this case the (MMM-SoccerLiveScore)[https://github.com/0m4r/MMM-SoccerLiveScore] module shall be displayed when games take place on the current day.
+
+## Prerequisites
+- Install (MMM-SoccerLiveScore)[https://github.com/0m4r/MMM-SoccerLiveScore]
+
+### Config
+Costomize the 'MODULE' section in the `config.json` file to control the behavor of the monitor
+|Option|Default|Description|
+|---|---|---|
+|`leagues`|{}|The string of the league you want to base your control on. Have a look at https://www.flashscore.de/fussball/deutschland/xyz. xyz is the league identifier. |
+|`url_league_off`|'http://xxx.xxx.xxx.xxx:xxxx/remote?action=HIDE&module=MMM-SoccerLiveScore'|The URL to hide the league module|
+|`url_league_oN`|http://xxx.xxx.xxx.xxx:xxxx/remote?action=HIDE&module=MMM-SoccerLiveScore'|The URL to show the league module|
