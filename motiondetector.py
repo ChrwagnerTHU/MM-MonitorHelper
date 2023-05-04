@@ -13,6 +13,7 @@ def time_in_range(start, end, current):
 
 time_monitor_off = datetime.time(23, 55, 0) # turn off monitor at 11:45pm
 time_monitor_on = datetime.time(7, 0, 0) # turn on monitor at 7:00am
+init = False
 
 __location__ = os.path.dirname(os.path.abspath(__file__))
 with open (__location__ + "/config.json", "r") as f:
@@ -25,11 +26,15 @@ with open (__location__ + "/config.json", "r") as f:
     bright_interval = data['MOTION']['bright_interval']
     off_interval = data['MOTION']['off_interval']
 
-
-# Set GPIO pin for PIR sensor
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(PIR_PIN, GPIO.IN)
-timestamp_dim = datetime.datetime.now()
+while not init:
+    try:
+        # Set GPIO pin for PIR sensor
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(PIR_PIN, GPIO.IN)
+        timestamp_dim = datetime.datetime.now()
+        init = True
+    except:
+        pass
 
 try:
     # Initially turn on monitor and dim it
