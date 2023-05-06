@@ -24,7 +24,6 @@ requests.get(url_league_on)
 for l in league:
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
-    print(soup.text.replace('\n', ''))
     if date_string in response.text:
         gameday_today = True
 
