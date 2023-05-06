@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 from datetime import date
 
-url = 'https://www.flashscore.de/fussball/deutschland/bundesliga/#/OIbxfZZI/table/overall'
+url = 'https://www.flashscore.de/fussball/deutschland/'
 today = date.today().strftime("%d.%m.")
 gameday_today = False
 
@@ -21,7 +21,7 @@ with open (__location__ + "/config.json", "r") as f:
 requests.get(url_league_on)
 
 for l in league:
-    response = requests.get(url)
+    response = requests.get(url + l)
     soup = BeautifulSoup(response.text, 'lxml')
     if today in response.text:
         gameday_today = True
