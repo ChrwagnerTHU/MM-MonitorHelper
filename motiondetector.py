@@ -45,31 +45,33 @@ while not init:
 # Keep monitor on until 11:45pm
 while(time_in_range(time_monitor_on, time_monitor_off, datetime.datetime.now().time())):
 
-    # Wait for motion to be detected with a timeout of 15 seconds
-    GPIO.wait_for_edge(PIR_PIN, GPIO.RISING, timeout = 15000)
+    try:
+        # Wait for motion to be detected with a timeout of 15 seconds
+        GPIO.wait_for_edge(PIR_PIN, GPIO.RISING, timeout = 15000)
+        # Turn on monitor if motion is detected
+        if GPIO.input(PIR_PIN):
+            try:
+                # Turn on monitor and brighten it
+                requests.get(url_monitor_bright)
+                requests.get(url_monitor_on)
+                monitor_on = True
 
-    # Turn on monitor if motion is detected
-    if GPIO.input(PIR_PIN):
-        try:
-            # Turn on monitor and brighten it
-            requests.get(url_monitor_bright)
-            requests.get(url_monitor_on)
-            monitor_on = True
+                # Keep monitor bright for 1 minute
+                time.sleep(bright_interval)
 
-            # Keep monitor bright for 1 minute
-            time.sleep(bright_interval)
+                # Dim monitor after 1 minute
+                requests.get(url_monitor_dim)
+                timestamp_dim = datetime.datetime.now()
+            except:
+                print("Error: Unable to connect to MagicMirror server")
+                continue
 
-            # Dim monitor after 1 minute
-            requests.get(url_monitor_dim)
-            timestamp_dim = datetime.datetime.now()
-        except:
-            print("Error: Unable to connect to MagicMirror server")
-            continue
-
-    # Turn off monitor after 15 minutes of inactivity
-    if (datetime.datetime.now() - timestamp_dim).seconds > off_interval and monitor_on:
-        requests.get(url_monitor_off)
-        monitor_on = False
+        # Turn off monitor after 15 minutes of inactivity
+        if (datetime.datetime.now() - timestamp_dim).seconds > off_interval and monitor_on:
+            requests.get(url_monitor_off)
+            monitor_on = False
+    except:
+        print("Error: While handling GPIO state")
 
 # Turn off monitor at 11:45pm
 requests.get(url_monitor_off)
