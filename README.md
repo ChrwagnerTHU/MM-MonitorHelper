@@ -53,10 +53,10 @@ The control of the times between which the monitor should be completely on and o
 # ModuleUpdater
 
 The script `moduleupdater.py` controls whether a module shall be displayed or not. 
-In this case the (MMM-SoccerLiveScore)[https://github.com/0m4r/MMM-SoccerLiveScore] module shall be displayed when games take place on the current day.
+In this case the [MMM-SoccerLiveScore](https://github.com/0m4r/MMM-SoccerLiveScore) module shall be displayed when games take place on the current day.
 
 ## Prerequisites
-- Install (MMM-SoccerLiveScore)[https://github.com/0m4r/MMM-SoccerLiveScore]
+- Install [MMM-SoccerLiveScore](https://github.com/0m4r/MMM-SoccerLiveScore)
 
 ### Config
 Costomize the 'MODULE' section in the `config.json` file to control the behavor of the monitor
