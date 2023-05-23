@@ -6,7 +6,9 @@
         "url_monitor_off": "http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITOROFF",
         "bright_interval": 60,
         "off_interval": 900,
-        "PIR_PIN": 18
+        "PIR_PIN": 18,
+        "LED_PIN_1": 23,
+        "LED_PIN_2": 24
     },
     "MODULE": {
         "league": {},
