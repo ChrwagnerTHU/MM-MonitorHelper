@@ -1,10 +1,14 @@
+#! /usr/bin/python3
+
 import json
 import os
-
+from bs4 import BeautifulSoup
 import requests
+from datetime import date
 
 url = 'https://www.flashscore.de/fussball/deutschland/'
-todayStr = 'Heutige Spiele'
+today = date.today().strftime("%d.%m.")
+gameday_today = False
 
 __location__ = os.path.dirname(os.path.abspath(__file__))
 with open (__location__ + "/config.json", "r") as f:
@@ -18,8 +22,11 @@ requests.get(url_league_on)
 
 for l in league:
     response = requests.get(url + l)
-    if todayStr in response.text:
-        requests.get(url_league_on)
-        break
-    else:
-        requests.get(url_league_off)
+    soup = BeautifulSoup(response.text, 'lxml')
+    if today in response.text:
+        gameday_today = True
+
+if gameday_today:
+    requests.get(url_league_on)
+else:
+    requests.get(url_league_off)
