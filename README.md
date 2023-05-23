@@ -35,6 +35,8 @@ Costomize the 'MOTION' section in the `config.json` file to control the behavor 
 |Option|Default|Description|
 |---|---|---|
 |`PIR_PIN`|18|The Pin the motion controller is attached|
+|`LED_PIN_1`|23|The Pin the first LED stripe is attached|
+|`LED_PIN_2`|24|The Pin the second LED stripe is attached|
 |`url_monitor_dim`|'http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=1'|The URL to set the brightnes to 1|
 |`url_monitor_bright`|'http://xxx.xxx.xxx.xxx:xxxx/remote?action=BRIGHTNESS&value=100'|The URL to set the brightnes to 100|
 |`url_monitor_on`|'http://xxx.xxx.xxx.xxx:xxxx/remote?action=MONITORON'|The URL to turn on the monitor|
