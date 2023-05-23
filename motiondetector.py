@@ -18,6 +18,8 @@ __location__ = os.path.dirname(os.path.abspath(__file__))
 with open (__location__ + "/config.json", "r") as f:
     data = json.load(f)
     PIR_PIN = data['MOTION']['PIR_PIN']
+    LED_PIN_1 = data['MOTION']['LED_PIN_1']
+    LED_PIN_2 = data['MOTION']['LED_PIN_2']
     url_monitor_on = data['MOTION']['url_monitor_on']
     url_monitor_off = data['MOTION']['url_monitor_off']
     url_monitor_dim = data['MOTION']['url_monitor_dim']
@@ -29,10 +31,14 @@ with open (__location__ + "/config.json", "r") as f:
 # Set GPIO pin for PIR sensor
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIR_PIN, GPIO.IN)
+GPIO.setup(LED_PIN_1, GPIO.OUT)
+GPIO.setup(LED_PIN_2, GPIO.OUT)
 
 # Initially turn on monitor and dim it
 requests.get(url_monitor_dim)
 requests.get(url_monitor_on)
+GPIO.output(LED_PIN_1, GPIO.LOW)
+GPIO.output(LED_PIN_2, GPIO.LOW)
 timestamp_dim = datetime.datetime.now()
 
 # Keep monitor on until 11:45pm
@@ -47,6 +53,8 @@ while(time_in_range(time_monitor_on, time_monitor_off, datetime.datetime.now().t
             # Turn on monitor and brighten it
             requests.get(url_monitor_bright)
             requests.get(url_monitor_on)
+            GPIO.output(LED_PIN_1, GPIO.HIGH)
+            GPIO.output(LED_PIN_2, GPIO.HIGH)
             monitor_on = True
 
             # Keep monitor bright for 1 minute
@@ -54,6 +62,8 @@ while(time_in_range(time_monitor_on, time_monitor_off, datetime.datetime.now().t
 
             # Dim monitor after 1 minute
             requests.get(url_monitor_dim)
+            GPIO.output(LED_PIN_1, GPIO.LOW)
+            GPIO.output(LED_PIN_2, GPIO.LOW)
             timestamp_dim = datetime.datetime.now()
         except:
             print("Error: Unable to connect to MagicMirror server")
@@ -66,3 +76,4 @@ while(time_in_range(time_monitor_on, time_monitor_off, datetime.datetime.now().t
 
 # Turn off monitor at 11:45pm
 requests.get(url_monitor_off)
+GPIO.cleanup()
